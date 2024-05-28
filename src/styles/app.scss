@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+@mixin flexCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card($color) {
+  background-color: $color;
+  padding: 10px;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+@mixin button($color, $hover) {
+  background-color: $color;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $hover;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.card {
+  @include card($dark);
+  @include flexCenter();
+
+  .btn {
+    @include button($sky, $sky_hover);
+  }
+
+  .btn-danger {
+    @include button($danger, $danger_hover);
+  }
+}
